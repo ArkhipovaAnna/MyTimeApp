@@ -1,0 +1,44 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "PT Serif Caption", serif;
+    font-weight: 500;
+    font-size: 22px;
+    background-color: rgb(176, 224, 230);
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 50px 50px 100px;
+    width: 1100px;
+    height: 600px;
+    box-sizing: border-box;
+    background-color: rgb(224, 255, 255);
+    border-radius: 30px;
+}
+
+.loading {
+    font-size: 46px;
+    font-weight: 600;
+}
+
+.currentCity {
+    display: flex;
+    justify-content: start;
+    column-gap: 100px;
+}
+
+.image {
+    border: 1px solid red;
+    max-width: 30%;
+    max-height: 50%;
+}
+
+.data {
+    border: 1px solid red;
+    background-color: rgb(240, 255, 255);
+}
