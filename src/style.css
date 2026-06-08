@@ -11,7 +11,8 @@ body {
 
 .wrapper {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: start;
     align-items: center;
     padding: 50px 50px 50px 100px;
     width: 1100px;
@@ -33,12 +34,10 @@ body {
 }
 
 .image {
-    border: 1px solid red;
     max-width: 30%;
     max-height: 50%;
 }
 
 .data {
-    border: 1px solid red;
     background-color: rgb(240, 255, 255);
 }

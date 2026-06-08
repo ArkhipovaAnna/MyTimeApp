@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 export default function useUserTime() {
 
     const [time, setTime] = useState(new Date());
@@ -10,5 +12,5 @@ export default function useUserTime() {
 
     }, [])
 
-    return time;
+    return time.toLocaleTimeString("en-US", { hour12: false, hour: "2-digit", minute: "2-digit" });
 }
