@@ -13,7 +13,8 @@ export default function useUserTimezone() {
         fetch(`https://api.timezonedb.com/v2.1/get-time-zone?key=5V0KUCFO06AA&format=json&by=position&lat=${latitude}&lng=${longitude}`)
             .then(response => response.json())
             .then(data => {
-                const value = data.gmtOffset / 3600;
+                let value = data.gmtOffset / 3600;
+                if (value > 0) value = `+${value}`;
                 setTimeZone(value);
             })
             .catch(error => console.log(error.message))
@@ -23,4 +24,3 @@ export default function useUserTimezone() {
     return timezone;
 
 }
-// 47.227620, 39.733790

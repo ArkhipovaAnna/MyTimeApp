@@ -15,7 +15,7 @@ export default function CurrentCity() {
             <div className="data">
                 <p>Ваше текущее положение: {location}</p>
                 <p>Местное время: {time}</p>
-                <p>Часовой пояс: UTC{timezone ? `+${timezone}` : timezone}</p>
+                <p>Часовой пояс: UTC{timezone}</p>
             </div>
         </div>
     )
