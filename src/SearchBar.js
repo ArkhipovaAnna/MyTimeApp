@@ -12,7 +12,7 @@ export default function SearchBar() {
         alert('done');
     }
 
-    console.log(value);
+    // console.log(value);
 
     return (
         <form action="">
