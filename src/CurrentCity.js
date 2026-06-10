@@ -1,11 +1,11 @@
 import useUserLocation from "./useUserLocation"
 import useUserTimezone from "./useUserTimezone";
-import useUserTime from "./useUserTime";
+import useUserDate from "./useUserDate";
 
 export default function CurrentCity() {
     const location = useUserLocation();
     const timezone = useUserTimezone();
-    const time = useUserTime();
+    const [time, date] = useUserDate();
 
     return (
         <div className="currentCity">
@@ -14,6 +14,7 @@ export default function CurrentCity() {
             </div>
             <div className="data">
                 <p>Ваше текущее положение: {location}</p>
+                <p>Дата: {date}</p>
                 <p>Местное время: {time}</p>
                 <p>Часовой пояс: UTC{timezone}</p>
             </div>
