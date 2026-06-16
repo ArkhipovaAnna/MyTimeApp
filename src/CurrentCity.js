@@ -2,9 +2,9 @@ import useUserLocation from "./useUserLocation"
 import useUserTimezone from "./useUserTimezone";
 import useUserDate from "./useUserDate";
 
-export default function CurrentCity() {
-    const location = useUserLocation();
-    const timezone = useUserTimezone();
+export default function CurrentCity({ geoObjName }) {
+    const location = useUserLocation(geoObjName);
+    const timezone = useUserTimezone(geoObjName);
     const [time, date] = useUserDate();
 
     return (

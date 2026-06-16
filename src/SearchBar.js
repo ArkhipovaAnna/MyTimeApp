@@ -1,18 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from 'react';
 
-export default function SearchBar() {
+export default function SearchBar({ onChange }) {
 
-    const [value, setValue] = useState();
-
-    function handlerChange(event) {
-        setValue(event.target.value);
-    }
-
-    function handlerClick(event) {
-        alert('done');
-    }
-
-    // console.log(value);
+    const [inputValue, setInputValue] = useState();
 
     return (
         <form action="">
@@ -23,10 +13,11 @@ export default function SearchBar() {
                     name="searchCity"
                     placeholder="Введите название города"
                     required
-                    onChange={handlerChange}>
+                    onChange={(event) => setInputValue(event.target.value)}
+                >
                 </input>
             </label>
-            <button type="button" onClick={handlerClick}>Найти</button>
+            <button type="button" onClick={() => onChange(inputValue)}>Найти</button>
         </form>
     )
 }

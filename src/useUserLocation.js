@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import useUserCoordinates from "./useUserCoordinates";
 
-export default function useUserLocation() {
+export default function useUserLocation(geoObjName) {
 
-    const [latitude, longitude] = useUserCoordinates();
+    const coords = useUserCoordinates(geoObjName);
     const [location, setLocation] = useState();
 
     useEffect(() => {
 
-        if (!latitude || !longitude) return;
+        if (!coords) return;
+
+        const [latitude, longitude] = coords;
 
         fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}&addressdetails=10&layer=address`, {
             headers: {
@@ -24,7 +26,7 @@ export default function useUserLocation() {
             })
             .catch(error => console.log(error.message))
 
-    }, [latitude, longitude]);
+    }, [coords]);
 
     return location;
 }

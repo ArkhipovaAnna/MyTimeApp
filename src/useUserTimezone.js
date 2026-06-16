@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import useUserCoordinates from "./useUserCoordinates";
 
-export default function useUserTimezone() {
+export default function useUserTimezone(geoObjName) {
 
-    const [latitude, longitude] = useUserCoordinates();
+    const coords = useUserCoordinates(geoObjName);
     const [timezone, setTimeZone] = useState();
 
     useEffect(() => {
 
-        if (!latitude || !longitude) return;
+        if (!coords) return;
+        const [latitude, longitude] = coords;
 
         fetch(`https://api.timezonedb.com/v2.1/get-time-zone?key=5V0KUCFO06AA&format=json&by=position&lat=${latitude}&lng=${longitude}`)
             .then(response => response.json())
@@ -19,7 +20,7 @@ export default function useUserTimezone() {
             })
             .catch(error => console.log(error.message))
 
-    }, [latitude, longitude])
+    }, [coords])
 
     return timezone;
 

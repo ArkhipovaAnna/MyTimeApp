@@ -1,25 +1,25 @@
 import { useState, useEffect } from "react";
 
-export default function useGeocoder() {
+export default function useGeocoder(geoObjName) {
 
     const apiKey = process.env.REACT_APP_YANDEX_GEOCODER_KEY;
 
-    const [coords, setCoords] = useState({ latitude: null, longitude: null });
-
-    const nameCity = 'Москва';
+    const [coords, setCoords] = useState(null);
 
     useEffect(() => {
 
-        fetch(`https://geocode-maps.yandex.ru/v1/?apikey=${apiKey}&geocode=${nameCity}&lang=ru_RU&results=1&format=json`)
+        if (!geoObjName) return;
+
+        fetch(`https://geocode-maps.yandex.ru/v1/?apikey=${apiKey}&geocode=${geoObjName}&lang=ru_RU&results=1&format=json`)
             .then(response => response.json())
             .then(data => {
                 const coordsString = data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos;
                 const [lon, lat] = coordsString.split(' ');
-                setCoords({ latitude: lat, longitude: lon });
+                setCoords([Number(lat), Number(lon)]);
             })
             .catch(error => console.log(error.message))
 
-    }, [nameCity]);
+    }, [geoObjName]);
 
     return coords;
 

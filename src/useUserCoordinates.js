@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react';
+import useGeocoder from './useGeocoder';
 
-export default function useUserCoordinates() {
-  const [coordinates, setCoordinates] = useState([null, null]);
+export default function useUserCoordinates(geoObjName) {
+
+  const [geolocationCoords, setGeolocationCoords] = useState(null);
   const [error, setError] = useState(null);
+
+  const geocoderCoords = useGeocoder(geoObjName);
 
   useEffect(() => {
 
@@ -13,14 +17,19 @@ export default function useUserCoordinates() {
 
     navigator.geolocation.getCurrentPosition((position) => {
       const coord = position.coords;
-      setCoordinates([coord.latitude, coord.longitude]);
+      setGeolocationCoords([coord.latitude, coord.longitude]);
     },
       (err) => {
         setError(err);
         console.log(`ERROR(${error.code}): ${error.message}`);
       })
-  }, [])
+  }, []);
 
-  return coordinates;
+
+  if (geoObjName) {
+    return geocoderCoords;
+  }
+
+  return geolocationCoords;
 }
 

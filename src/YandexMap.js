@@ -1,17 +1,26 @@
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
+import { useEffect } from 'react';
 import useUserCoordinates from "./useUserCoordinates";
 
-const YandexMap = () => {
+const YandexMap = ({ geoObjName }) => {
 
-    const [latitude, longitude] = useUserCoordinates();
+    const result = useUserCoordinates(geoObjName);
 
-    if (!latitude || !longitude) return;
+
+    if (!result || result.includes(null)) {
+        return
+        <div className='loading'>
+            Загрузка карты...
+        </div>;
+    }
+
+    const [latitude, longitude] = result;
 
     return (
         <YMaps>
             <div style={{ width: '100%', height: '300px' }}>
                 <Map
-                    defaultState={{
+                    state={{
                         center: [latitude, longitude],
                         zoom: 11,
                         controls: ["zoomControl", "fullscreenControl"],
@@ -19,7 +28,7 @@ const YandexMap = () => {
                     modules={["control.ZoomControl", "control.FullscreenControl"]}
                     width="100%"
                     height="90%">
-                    <Placemark defaultGeometry={[latitude, longitude]} />
+                    <Placemark geometry={[latitude, longitude]} />
                 </Map>
             </div>
         </YMaps>);
