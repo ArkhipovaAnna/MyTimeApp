@@ -4,12 +4,12 @@ import useUserCoordinates from "./useUserCoordinates";
 export default function useUserLocation(geoObjName) {
 
     const coords = useUserCoordinates(geoObjName);
-    const [location, setLocation] = useState();
+    const [location, setLocation] = useState(null);
 
     useEffect(() => {
 
         if (!coords) {
-            setLocation('...');
+            setLocation(null);
             return;
         };
 

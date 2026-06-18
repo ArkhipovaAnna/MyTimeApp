@@ -7,8 +7,8 @@ export default function useUserDate(gmtOffsetSeconds) {
     useEffect(() => {
 
         if (gmtOffsetSeconds === null) {
-            setTimeString('...');
-            setDateString('...');
+            setTimeString(null);
+            setDateString(null);
             return;
         };
 
