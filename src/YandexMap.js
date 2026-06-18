@@ -1,11 +1,10 @@
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
-import { useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import useUserCoordinates from "./useUserCoordinates";
 
 const YandexMap = ({ geoObjName }) => {
 
     const result = useUserCoordinates(geoObjName);
-
 
     if (!result || result.includes(null)) {
         return
@@ -35,3 +34,4 @@ const YandexMap = ({ geoObjName }) => {
 };
 
 export default YandexMap;
+

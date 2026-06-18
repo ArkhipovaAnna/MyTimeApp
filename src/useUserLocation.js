@@ -8,7 +8,10 @@ export default function useUserLocation(geoObjName) {
 
     useEffect(() => {
 
-        if (!coords) return;
+        if (!coords) {
+            setLocation('...');
+            return;
+        };
 
         const [latitude, longitude] = coords;
 

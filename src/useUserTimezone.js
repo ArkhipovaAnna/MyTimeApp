@@ -3,25 +3,27 @@ import useUserCoordinates from "./useUserCoordinates";
 
 export default function useUserTimezone(geoObjName) {
 
+    const apiKey = process.env.REACT_APP_TIMEZONEDB_KEY;
+
     const coords = useUserCoordinates(geoObjName);
-    const [timezone, setTimeZone] = useState();
+    const [gmtOffset, setGmtOffset] = useState(null);
 
     useEffect(() => {
 
-        if (!coords) return;
+        if (!coords) {
+            setGmtOffset(null);
+            return;
+        };
+
         const [latitude, longitude] = coords;
 
-        fetch(`https://api.timezonedb.com/v2.1/get-time-zone?key=5V0KUCFO06AA&format=json&by=position&lat=${latitude}&lng=${longitude}`)
+        fetch(`https://api.timezonedb.com/v2.1/get-time-zone?key=${apiKey}&format=json&by=position&lat=${latitude}&lng=${longitude}`)
             .then(response => response.json())
-            .then(data => {
-                let value = data.gmtOffset / 3600;
-                if (value > 0) value = `+${value}`;
-                setTimeZone(value);
-            })
-            .catch(error => console.log(error.message))
+            .then(data => setGmtOffset(data.gmtOffset))
+            .catch(error => console.log(error.message));
 
     }, [coords])
 
-    return timezone;
+    return gmtOffset;
 
 }
