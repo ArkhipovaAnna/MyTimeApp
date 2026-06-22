@@ -1,7 +1,7 @@
 import useUserLocation from "./useUserLocation"
 import useUserTimezone from "./useUserTimezone";
 import useUserDate from "./useUserDate";
-import LoadingComponent from "./LoadingComponent";
+import BeatLoaderComponent from "./BeatLoaderComponent";
 
 export default function CurrentCity({ geoObjName }) {
 
@@ -10,7 +10,7 @@ export default function CurrentCity({ geoObjName }) {
     const [time, date] = useUserDate(gmtOffset);
 
     const formatTimezone = () => {
-        if (gmtOffset === null) return <LoadingComponent />;
+        if (gmtOffset === null) return <BeatLoaderComponent />;
         const hours = gmtOffset / 3600;
         return hours >= 0 ? `UTC+${hours}` : `UTC${hours}`;
     };
@@ -21,9 +21,9 @@ export default function CurrentCity({ geoObjName }) {
                 <img src="./images/village.png" alt="Изображение города" />
             </div>
             <div className="data">
-                <p>Ваше текущее положение: {location || <LoadingComponent />}</p>
-                <p>Дата: {date || <LoadingComponent />}</p>
-                <p>Местное время: {time || <LoadingComponent />}</p>
+                <p>{geoObjName ? 'Результаты поиска:' : 'Ваше текущее положение:'} {location || <BeatLoaderComponent />}</p>
+                <p>Дата: {date || <BeatLoaderComponent />}</p>
+                <p>Местное время: {time || <BeatLoaderComponent />}</p>
                 <p>Часовой пояс: {formatTimezone()}</p>
             </div>
         </div>

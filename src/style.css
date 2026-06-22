@@ -1,32 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
 body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "PT Serif Caption", serif;
+    font-family: "Georgia", serif;
     font-weight: 500;
-    font-size: 22px;
+    font-size: 24px;
     background-color: rgb(176, 224, 230);
+    box-sizing: border-box;
 }
 
 .wrapper {
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: 20px;
     justify-content: start;
     align-items: center;
     padding: 50px;
-    box-sizing: border-box;
     background-color: rgb(224, 255, 255);
     border-radius: 30px;
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.08),
+        0 4px 8px rgba(0, 0, 0, 0.08),
+        0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
 .loading {
-    width: '100%';
-    height: '300px';
-    display: 'flex';
-    align-items: 'center';
-    justify-content: 'center';
+    display: block;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .currentCity {
@@ -41,6 +52,58 @@ body {
 }
 
 .data {
-    width: 70%;
+    width: 700px;
+    padding: 20px;
+    line-height: 2;
     background-color: rgb(240, 255, 255);
+    border-radius: 30px;
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.08),
+        0 4px 8px rgba(0, 0, 0, 0.08),
+        0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.map {
+    width: 100%;
+    height: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08),
+        0 4px 8px rgba(0, 0, 0, 0.08),
+        0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.searchForm {
+    width: 69%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.searchLabel input {
+    width: 500px;
+    height: 40px;
+    padding: 10px;
+    margin-left: 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 2px solid rgb(125, 163, 163);
+}
+
+.searchLabel input:focus,
+.searchLabel input:hover {
+    outline: none;
+    border: 2px solid rgb(8, 135, 199);
+
+}
+
+.searchForm button {
+    width: 120px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 2px solid rgb(125, 163, 163);
+    background-color: white;
+}
+
+.searchForm button:hover {
+    border: 2px solid rgb(8, 135, 199);
 }

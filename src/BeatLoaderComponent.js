@@ -1,6 +1,6 @@
 import { BeatLoader } from 'react-spinners';
 
-export default function LoadingComponent() {
+export default function BeatLoaderComponent() {
     return (
         <span><BeatLoader
             size={5}

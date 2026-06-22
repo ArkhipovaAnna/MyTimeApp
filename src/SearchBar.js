@@ -5,9 +5,12 @@ export default function SearchBar({ onChange }) {
     const [inputValue, setInputValue] = useState();
 
     return (
-        <form action="">
-            <label>
-                Поиск:{' '}
+        <form className='searchForm' onSubmit={(e) => {
+            e.preventDefault();
+            onChange(inputValue);
+        }}>
+            <label className='searchLabel'>
+                Поиск:
                 <input
                     type="search"
                     name="searchCity"
