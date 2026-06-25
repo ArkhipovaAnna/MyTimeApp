@@ -13,10 +13,21 @@ export default function ThemeToggle() {
         setTheme((cur) => cur === 'light' ? 'dark' : 'light');
     }
 
-    const className = 'button-' + theme;
+    // const className = 'button-' + theme;
+
+    // return (
+    //     <button className={`buttonToogle ${className}`} onClick={toggleTheme}>{theme === 'light' ? 'Светлая тема' : 'Темная тема'}</button>
+    // )
 
     return (
-        <button className={`buttonToogle ${className}`} onClick={toggleTheme}>{theme === 'light' ? 'Светлая тема' : 'Темная тема'}</button>
+        <label className="toggle-switch">
+            <input
+                type="checkbox"
+                checked={theme === 'dark'}
+                onChange={toggleTheme}
+            />
+            <span className="slider"></span>
+        </label>
     )
 
 }

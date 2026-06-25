@@ -158,14 +158,6 @@ button:hover {
     border: 2px solid rgb(8, 135, 199);
 }
 
-.buttonToogle {
-    position: absolute;
-    top: 40px;
-    right: 50px;
-    font-size: 16px;
-    border-radius: 10px;
-}
-
 .button-light {
     border: 2px solid rgb(125, 163, 163);
     background-color: white;
@@ -175,4 +167,62 @@ button:hover {
     color: rgb(240, 232, 232);
     border: 2px solid rgb(52, 64, 64);
     background-color: rgb(129, 136, 136);
+}
+
+/*  Оформление переключателя темы*/
+
+/* Прячем стандартный чекбокс */
+.toggle-switch input {
+    display: none;
+}
+
+/* Контейнер для переключателя */
+.toggle-switch {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    /* display: inline-block; */
+    width: 80px;
+    height: 34px;
+    cursor: pointer;
+}
+
+/* Ползунок (фон) */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f4d03f;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+/* Иконка (Солнце по умолчанию) */
+.slider:before {
+    position: absolute;
+    content: "☀️";
+    font-size: 20px;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Когда чекбокс выбран (Темная тема / Луна) */
+input:checked+.slider {
+    background-color: #000000;
+}
+
+input:checked+.slider:before {
+    content: "🌙";
+    transform: translateX(46px);
 }
