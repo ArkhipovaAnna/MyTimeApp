@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import useTheme from "./useTheme";
+import useTheme from "../context/useTheme";
 
 export default function SearchBar({ onChange }) {
 

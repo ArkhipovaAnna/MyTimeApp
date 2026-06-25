@@ -1,8 +1,8 @@
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 import { useRef, useEffect } from 'react';
-import useUserCoordinates from "./useUserCoordinates";
-import RingLoaderComponent from './RingLoaderComponent';
-import useTheme from "./useTheme";
+import useUserCoordinates from "../hooks/useUserCoordinates";
+import RingLoaderComponent from '../../../components/loaders/RingLoaderComponent';
+import useTheme from "../../../context/useTheme";
 
 const YandexMap = ({ geoObjName }) => {
 

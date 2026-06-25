@@ -1,8 +1,8 @@
-import useUserLocation from "./useUserLocation"
-import useUserTimezone from "./useUserTimezone";
-import useUserDate from "./useUserDate";
-import BeatLoaderComponent from "./BeatLoaderComponent";
-import useTheme from "./useTheme";
+import useUserLocation from "../hooks/useUserLocation";
+import useUserTimezone from "../hooks/useUserTimezone";
+import useUserDate from "../hooks/useUserDate";
+import BeatLoaderComponent from "../../../components/loaders/BeatLoaderComponent";
+import useTheme from "../../../context/useTheme";
 
 export default function CityInformation({ geoObjName }) {
 

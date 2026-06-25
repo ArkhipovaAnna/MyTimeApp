@@ -13,12 +13,6 @@ export default function ThemeToggle() {
         setTheme((cur) => cur === 'light' ? 'dark' : 'light');
     }
 
-    // const className = 'button-' + theme;
-
-    // return (
-    //     <button className={`buttonToogle ${className}`} onClick={toggleTheme}>{theme === 'light' ? 'Светлая тема' : 'Темная тема'}</button>
-    // )
-
     return (
         <label className="toggle-switch">
             <input
