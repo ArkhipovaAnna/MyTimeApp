@@ -11,7 +11,6 @@ body {
     font-family: "Georgia", serif;
     font-weight: 500;
     font-size: 24px;
-    background-color: rgb(176, 224, 230);
     box-sizing: border-box;
 }
 
@@ -22,12 +21,19 @@ body {
     justify-content: start;
     align-items: center;
     padding: 50px;
-    background-color: rgb(224, 255, 255);
     border-radius: 30px;
     box-shadow:
         0 2px 4px rgba(0, 0, 0, 0.08),
         0 4px 8px rgba(0, 0, 0, 0.08),
         0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.wrapper-light {
+    background-color: rgb(224, 255, 255);
+}
+
+.wrapper-dark {
+    background-color: rgb(95, 108, 108);
 }
 
 .loading {
@@ -51,16 +57,25 @@ body {
     width: 30%;
 }
 
-.data {
+.information {
     width: 700px;
     padding: 20px;
     line-height: 2;
-    background-color: rgb(240, 255, 255);
     border-radius: 30px;
     box-shadow:
         0 2px 4px rgba(0, 0, 0, 0.08),
         0 4px 8px rgba(0, 0, 0, 0.08),
         0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.information-light {
+    color: black;
+    background-color: rgb(240, 255, 255);
+}
+
+.information-dark {
+    color: rgb(240, 232, 232);
+    background-color: rgb(129, 136, 136);
 }
 
 .map {
@@ -71,6 +86,14 @@ body {
         0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
+.map-light {
+    filter: none;
+}
+
+.map-dark {
+    filter: invert(1) hue-rotate(180deg);
+}
+
 .searchForm {
     width: 69%;
     display: flex;
@@ -78,14 +101,40 @@ body {
     align-items: end;
 }
 
-.searchLabel input {
+.searchForm-dark {
+    color: rgb(240, 232, 232);
+}
+
+.searchForm input {
     width: 500px;
     height: 40px;
     padding: 10px;
     margin-left: 20px;
     font-size: 18px;
     border-radius: 10px;
+}
+
+.searchForm input:focus {
+    outline: none;
+    border: 2px solid rgb(52, 142, 142);
+}
+
+.searchForm input:focus::placeholder {
+    opacity: 0;
+}
+
+.searchForm-light input {
     border: 2px solid rgb(125, 163, 163);
+}
+
+.searchForm-dark input {
+    color: rgb(240, 232, 232);
+    background-color: rgb(129, 136, 136);
+    border: 2px solid rgb(52, 64, 64);
+}
+
+.searchForm-dark input::placeholder {
+    color: rgb(240, 232, 232);
 }
 
 .searchLabel input:focus,
@@ -95,7 +144,7 @@ body {
 
 }
 
-.searchForm button {
+button {
     width: 120px;
     height: 40px;
     font-size: 18px;
@@ -104,6 +153,26 @@ body {
     background-color: white;
 }
 
-.searchForm button:hover {
+button:hover {
+    outline: none;
     border: 2px solid rgb(8, 135, 199);
+}
+
+.buttonToogle {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.button-light {
+    border: 2px solid rgb(125, 163, 163);
+    background-color: white;
+}
+
+.button-dark {
+    color: rgb(240, 232, 232);
+    border: 2px solid rgb(52, 64, 64);
+    background-color: rgb(129, 136, 136);
 }

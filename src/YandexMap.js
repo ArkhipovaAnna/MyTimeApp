@@ -2,8 +2,12 @@ import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 import { useRef, useEffect } from 'react';
 import useUserCoordinates from "./useUserCoordinates";
 import RingLoaderComponent from './RingLoaderComponent';
+import useTheme from "./useTheme";
 
 const YandexMap = ({ geoObjName }) => {
+
+    const [theme] = useTheme();
+    const className = 'map-' + theme;
 
     const result = useUserCoordinates(geoObjName);
 
@@ -19,7 +23,7 @@ const YandexMap = ({ geoObjName }) => {
     const [latitude, longitude] = result;
 
     return (
-        <div className='map'>
+        <div className={`map ${className}`}>
             <YMaps>
                 <div style={{ width: '100%', height: '300px' }}>
                     <Map

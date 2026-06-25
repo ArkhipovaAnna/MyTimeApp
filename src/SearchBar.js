@@ -1,15 +1,20 @@
 import { useState, useEffect } from 'react';
+import useTheme from "./useTheme";
 
 export default function SearchBar({ onChange }) {
 
     const [inputValue, setInputValue] = useState();
 
+    const [theme] = useTheme();
+    const classNameForm = 'searchForm-' + theme;
+    const classNameButton = 'button-' + theme;
+
     return (
-        <form className='searchForm' onSubmit={(e) => {
+        <form className={`searchForm ${classNameForm}`} onSubmit={(e) => {
             e.preventDefault();
             onChange(inputValue);
         }}>
-            <label className='searchLabel'>
+            <label>
                 Поиск:
                 <input
                     type="search"
@@ -20,7 +25,7 @@ export default function SearchBar({ onChange }) {
                 >
                 </input>
             </label>
-            <button type="button" onClick={() => onChange(inputValue)}>Найти</button>
+            <button type="button" className={`${classNameButton}`} onClick={() => onChange(inputValue)}>Найти</button>
         </form>
     )
 }

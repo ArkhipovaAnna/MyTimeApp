@@ -1,18 +1,15 @@
 import './style.css';
-import CurrentCity from './CurrentCity';
-import YandexMap from './YandexMap.js'
-import SearchBar from './SearchBar.js';
-import { useState, useEffect } from 'react';
+import ThemeContextProvider from './ThemeContextProvider.js';
+import ThemeToggle from './ThemeToggle.js';
+import Data from './Data.js';
 
 
 export default function App() {
-  const [value, setValue] = useState('');
 
   return (
-    <div className="wrapper">
-      <CurrentCity geoObjName={value} />
-      <YandexMap geoObjName={value} />
-      <SearchBar onChange={setValue} />
-    </div>
+    <ThemeContextProvider>
+      <ThemeToggle />
+      <Data />
+    </ ThemeContextProvider >
   )
 }
