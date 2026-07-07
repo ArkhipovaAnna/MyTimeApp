@@ -78,6 +78,8 @@ body {
     background-color: rgb(129, 136, 136);
 }
 
+/* Карта */
+
 .map {
     width: 100%;
     height: 300px;
@@ -94,11 +96,17 @@ body {
     filter: invert(1) hue-rotate(180deg);
 }
 
+/* Форма поиска */
+
 .searchForm {
     width: 69%;
     display: flex;
     justify-content: space-between;
     align-items: end;
+}
+
+.searchForm div {
+    position: relative;
 }
 
 .searchForm-dark {
@@ -112,6 +120,7 @@ body {
     margin-left: 20px;
     font-size: 18px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .searchForm input:focus {
@@ -137,12 +146,47 @@ body {
     color: rgb(240, 232, 232);
 }
 
-.searchLabel input:focus,
-.searchLabel input:hover {
-    outline: none;
-    border: 2px solid rgb(8, 135, 199);
+/* Выпадающий список подсказок */
 
+.suggest {
+    position: absolute;
+    left: 100px;
+    width: 500px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
+
+.suggestList {
+    padding: 5px;
+    padding-left: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.suggestList-light {
+    border: 1px solid rgb(125, 163, 163);
+    background-color: white;
+}
+
+.suggestList-light.active {
+    background-color: rgb(200, 244, 255);
+    outline: none;
+}
+
+.suggestList-dark {
+    color: rgb(240, 232, 232);
+    background-color: rgb(129, 136, 136);
+    border: 1px solid rgb(27, 75, 75);
+}
+
+.suggestList-dark.active {
+    background-color: rgb(104, 106, 107);
+    outline: none;
+}
+
+/* Кнопки */
 
 button {
     width: 120px;
@@ -151,6 +195,7 @@ button {
     border-radius: 10px;
     border: 2px solid rgb(125, 163, 163);
     background-color: white;
+    cursor: pointer;
 }
 
 button:hover {

@@ -1,8 +1,8 @@
+import { useState } from 'react';
 import CurrentCity from './CurrentCity.js';
 import YandexMap from './YandexMap.js'
-import SearchBar from '../../../components/SearchBar.js';
+import SearchBar from '../../../components/search/SearchBar.js';
 import useTheme from "../../../context/useTheme.js";
-import { useState } from 'react';
 
 export default function Data() {
 
