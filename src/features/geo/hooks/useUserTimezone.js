@@ -13,7 +13,10 @@ export default function useUserTimezone(geoObjName) {
         if (!coords) {
             setGmtOffset(null);
             return;
-        };
+        } else if (coords === 'Нет данных') {
+            setGmtOffset('Нет данных');
+            return;
+        }
 
         const [latitude, longitude] = coords;
 

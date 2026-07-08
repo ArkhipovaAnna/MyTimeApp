@@ -15,6 +15,10 @@ export default function useGeocoder(geoObjName) {
         fetch(`https://geocode-maps.yandex.ru/v1/?apikey=${apiKey}&geocode=${geoObjName}&lang=ru_RU&results=1&format=json`)
             .then(response => response.json())
             .then(data => {
+                if (!data.response.GeoObjectCollection.featureMember[0]) {
+                    setCoords('Нет данных');
+                    return;
+                }
                 const coordsString = data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos;
                 const [lon, lat] = coordsString.split(' ');
                 setCoords([Number(lat), Number(lon)]);

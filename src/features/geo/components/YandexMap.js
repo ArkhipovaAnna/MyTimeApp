@@ -18,6 +18,12 @@ const YandexMap = ({ geoObjName }) => {
                 <RingLoaderComponent />
             </div>
         )
+    } else if (result === 'Нет данных') {
+        return (
+            <div className='loading'>
+                <p>Ничего не найдено 😞<br />Попробуйте изменить запрос</p>
+            </div>
+        )
     }
 
     const [latitude, longitude] = result;

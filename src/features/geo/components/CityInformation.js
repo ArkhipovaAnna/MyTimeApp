@@ -11,7 +11,12 @@ export default function CityInformation({ geoObjName }) {
     const [time, date] = useUserDate(gmtOffset);
 
     const formatTimezone = () => {
-        if (gmtOffset === null) return <BeatLoaderComponent />;
+        if (gmtOffset === null) {
+            return <BeatLoaderComponent />;
+        } else if (gmtOffset === 'Нет данных') {
+            return 'Нет данных';
+        }
+
         const hours = gmtOffset / 3600;
         return hours >= 0 ? `UTC+${hours}` : `UTC${hours}`;
     };

@@ -10,7 +10,11 @@ export default function useUserDate(gmtOffsetSeconds) {
             setTimeString(null);
             setDateString(null);
             return;
-        };
+        } else if (gmtOffsetSeconds === 'Нет данных') {
+            setTimeString('Нет данных');
+            setDateString('Нет данных');
+            return;
+        }
 
         const updateClock = () => {
 

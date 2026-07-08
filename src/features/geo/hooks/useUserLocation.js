@@ -11,7 +11,10 @@ export default function useUserLocation(geoObjName) {
         if (!coords) {
             setLocation(null);
             return;
-        };
+        } else if (coords === 'Нет данных') {
+            setLocation('Нет данных');
+            return;
+        }
 
         const [latitude, longitude] = coords;
 
@@ -24,7 +27,7 @@ export default function useUserLocation(geoObjName) {
             .then(response => response.json())
             .then(data => {
                 const address = data.address;
-                const name = address.city ?? address.town ?? address.village;
+                const name = address.city ?? address.town ?? address.village ?? address.municipality;
                 setLocation(`${name}, ${address.country} `);
             })
             .catch(error => console.log(error.message))
