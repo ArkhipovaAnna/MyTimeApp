@@ -14,6 +14,11 @@ body {
     box-sizing: border-box;
 }
 
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -51,12 +56,17 @@ body {
 .currentCity {
     display: flex;
     justify-content: start;
+    align-items: center;
     width: 100%;
-    column-gap: 100px;
+    column-gap: 80px;
 }
 
 .image {
-    width: 30%;
+    width: 300px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .information {
@@ -103,7 +113,8 @@ body {
 .searchForm {
     width: 69%;
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
+    column-gap: 15px;
     align-items: end;
 }
 

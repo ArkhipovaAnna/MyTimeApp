@@ -27,7 +27,7 @@ export default function useUserLocation(geoObjName) {
             .then(response => response.json())
             .then(data => {
                 const address = data.address;
-                const name = address.city ?? address.town ?? address.village ?? address.municipality;
+                const name = address.city ?? address.town ?? address.village ?? address.municipality ?? address.state;
                 setLocation(`${name}, ${address.country} `);
             })
             .catch(error => console.log(error.message))

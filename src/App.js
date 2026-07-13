@@ -3,7 +3,6 @@ import ThemeContextProvider from './context/ThemeContextProvider.js'
 import ThemeToggle from './context/ThemeToggle.js';
 import Data from './features/geo/components/Data.js';
 
-
 export default function App() {
 
   return (

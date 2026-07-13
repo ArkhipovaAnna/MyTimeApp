@@ -27,7 +27,7 @@ export default function useSuggest(str) {
                     }
                 })
                 .catch(error => console.error("Ошибка геосаджеста: ", error.message));
-        }, 250);
+        }, 200);
 
         return () => clearTimeout(handler);
 
